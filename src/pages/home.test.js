@@ -1,32 +1,28 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
-import { render, unmountComponentAtNode } from "react-dom";
-import{ act} from "react-dom/test-utils";
-import pretty from "pretty";
-//import component
+import { render, screen } from '@testing-library/react';
 import Home from './home';
+import '@testing-library/jest-dom/extend-expect'
 
-let container = null;
-//setup a DOM element as a render target
-beforeEach(() => {
-    container = document.createElement("div");
-    document.body.appendChild(container);
-});
 
-afterEach(() => {
-    //cleanup on exiting
-    unmountComponentAtNode(container);
-    container.remove();
-    container = null;
-});
+it ('renders home page message', () => {
 
-it("it should render an image", () => {
-    act(() => {
-        render(<Home />, container);
-    });
+    //Arrange
+    const {getByText, asFragment} = render(<Home />,
+    );
 
-    expect(
-        pretty(container.innerHTML)
-    ).toMatchInlineSnapshot(); //gets filled automatically by jest
+    //Act
+    //...nothing
 
-    
-});
+    //Assert
+    // const homeElement = screen.getByText("Shop Collection", { exact: false });
+    expect(getByText('Summer styles are finally here')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot(
+        `<h1 className="font text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Summer styles are finally here</h1>`, {exact: false}
+    );
+}
+);
+
+

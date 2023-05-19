@@ -1,0 +1,19 @@
+{
+    "env": {
+        "test": {
+          "plugins": ["@babel/plugin-transform-modules-commonjs"]
+        }
+      },
+    "presets": [
+        [
+            "@babel/preset-react",
+            {
+                "pragma": "dom",
+                "pragmaFrag": "DomFrag",
+                "throwIfNamespace": false,
+                "runtime": "classic"
+            },
+            "@babel/preset-env"
+        ]
+    ]
+}

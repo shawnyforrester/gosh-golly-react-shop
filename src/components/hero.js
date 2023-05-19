@@ -1,6 +1,4 @@
 import React from 'react';
-// import images
-import WomanImg from '../img/woman_logo.jpg';
 // import link
 import { Link } from 'react-router-dom';
 
