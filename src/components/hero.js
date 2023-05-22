@@ -1,5 +1,4 @@
 import React from 'react';
-// import link
 import { Link } from 'react-router-dom';
 import WomanImg from '../img/woman_logo.jpg';
 
@@ -27,7 +26,7 @@ const Hero = () => {
         {/* image */}
         <div>         
           <div className='hidden lg:block'>
-            <img src={WomanImg} alt='/' />
+            <img src={WomanImg} />
           </div>          
         </div>
 
